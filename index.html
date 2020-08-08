@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<title>HexTrade</title>
+		<meta name="apple-itunes-app" content="app-id=903769553"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, minimal-ui"/>
+		<meta property="og:url" content=""/>
+		<meta property="og:site_name" content="Hex-trade"/>
+		<meta property="og:title" content="Hex-trade"/>
+		<meta property="og:description" content="An addictive puzzle that determines your selling skills."/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:author" content=""/>
+		<meta property="og:image" content="fbshare.png"/>
+		<meta property="og:image:width" content="1200"/>
+		<meta property="og:image:height" content="630"/>
+		<meta property="twitter:card" content="summary"/>
+		<meta property="twitter:site" content=""/>
+
+
+		<link href="images/icon.png" rel="icon">
+  <link href="images/icon.png" rel="apple-touch-icon">
+
+	
+	
+	
+		<link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="style/fa/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="style/style.css">
+		<script type='text/javascript' src="vendor/hammer.min.js"></script>
+		<script type='text/javascript' src="vendor/js.cookie.js"></script>
+		<script type='text/javascript' src="vendor/jsonfn.min.js"></script>
+		<script type='text/javascript' src="vendor/keypress.min.js"></script>
+		<script type='text/javascript' src="vendor/jquery.js"></script>
+		<script type='text/javascript' src="js/save-state.js"></script>
+		<script type='text/javascript' src="js/view.js"></script>
+		<script type='text/javascript' src="js/wavegen.js"></script>
+		<script type='text/javascript' src="js/math.js"></script>
+		<script type='text/javascript' src="js/Block.js"></script>
+		<script type='text/javascript' src="js/Hex.js"></script>
+		<script type='text/javascript' src="js/Text.js"></script>
+		<script type='text/javascript' src="js/comboTimer.js"></script>
+		<script type='text/javascript' src="js/checking.js"></script>
+		<script type='text/javascript' src='js/update.js'></script>
+		<script type='text/javascript' src='js/render.js'></script>
+		<script type='text/javascript' src="js/input.js"></script>
+		<script type='text/javascript' src="js/main.js"></script>
+		<script type='text/javascript' src="js/initialization.js"></script>
+		<script type='text/javascript' async src="https://hextris.io/scripts/a.js"></script>
+		<script src="vendor/sweet-alert.min.js"></script>
+		<link rel="stylesheet" href="style/rrssb.css"/>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<div id="overlay" class="faded overlay"></div>
+		<div id='startBtn' ></div>
+		<div id="helpScreen" class='unselectable'>
+			<div id='inst_main_body'></div>
+		</div>
+		<img id="openSideBar" class='helpText' src="./images/icon.png"/>
+		<div class="faded overlay"></div>
+		<img id="pauseBtn" src="./images/btn_pause.svg"/>
+		<img id='restartBtn' src="./images/btn_restart.svg"/>
+		<div id='HIGHSCORE'>HIGH SCORE</div>
+		<script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-51272720-2', 'auto'); ga('send', 'pageview');
+		</script>
+		<div id='highScoreInGameText'>
+			<div id='highScoreInGameTextHeader'>HIGH SCORE</div><div id='currentHighScore'>10292</div>
+		</div>
+		<div id="gameoverscreen">
+			<div id='container'>
+				<div id='gameOverBox' class='GOTitle'>GAME OVER</div>
+				<div id='cScore'>1843</div>
+				<div id='highScoresTitle' class='GOTitle'>HIGH SCORES</div>
+				<div class='score'><span class='scoreNum'>1.</span> <div id="1place" style="display:inline;">0</div></div>
+				<div class='score'><span class='scoreNum'>2.</span> <div id="2place" style="display:inline;">0</div></div>
+				<div class='score'><span class='scoreNum'>3.</span> <div id="3place" style="display:inline;">0</div></div>
+			</div>
+			<div id='bottomContainer'>
+				<img id='restart' src='./images/btn_restart.svg' height='57px'>
+				
+				<div id='buttonCont'>
+					<ul class="rrssb-buttons">
+						<li class="rrssb-facebook">
+							<a href='http://www.facebook.com/sharer.php?s=100
+								&p[url]=' class="popup">
+								<span class="rrssb-icon">
+									<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="29" height="29" viewBox="0 0 29 29">
+										<path d="M26.4 0H2.6C1.714 0 0 1.715 0 2.6v23.8c0 .884 1.715 2.6 2.6 2.6h12.393V17.988h-3.996v-3.98h3.997v-3.062c0-3.746 2.835-5.97 6.177-5.97 1.6 0 2.444.173 2.845.226v3.792H21.18c-1.817 0-2.156.9-2.156 2.168v2.847h5.045l-.66 3.978h-4.386V29H26.4c.884 0 2.6-1.716 2.6-2.6V2.6c0-.885-1.716-2.6-2.6-2.6z"
+										class="cls-2" fill-rule="evenodd"/>
+									</svg>
+								</span>
+								<span class="rrssb-text">facebook</span>
+							</a>
+						</li>
+						<li class="rrssb-twitter">
+							<a href="https://docs.google.com/forms/d/e/1FAIpQLSes5E04BINzzukVHg6yFGmPtY5M1RVMkjqglCyE3o8H1FHLLw/viewform?vc=0&c=0&w=1"
+							class="popup">
+								
+								<span class="rrssb-text">Sign Up </span>
+							</a>
+						</li>
+				</ul>
+					
+				</div>
+			</div>
+		</div>
+			
+		<script type="text/javascript" src='vendor/rrssb.min.js'></script>
+	</body>
+</html>
